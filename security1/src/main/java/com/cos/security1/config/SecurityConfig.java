@@ -27,10 +27,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/manager/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll()
+
                 .and()
                 .formLogin()
                 .loginPage("/loginForm")
                 .loginProcessingUrl("/login")  // "/login" 주소가 호출되면 시큐리티가 인터셉트 후 대신 로그인 진행
-                .defaultSuccessUrl("/");
+                .defaultSuccessUrl("/")
+
+                .and()
+                .oauth2Login()
+                .loginPage("/loginForm");
     }
 }
