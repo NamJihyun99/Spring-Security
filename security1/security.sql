@@ -5,4 +5,7 @@ use security;
 
 desc user;
 
-select * from security.user
+select * from security.user;
+
+update security.user set role = 'ROLE_MANAGER' where id = 2;
+update security.user set role = 'ROLE_ADMIN' where id = 3;
