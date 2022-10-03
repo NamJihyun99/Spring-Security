@@ -21,6 +21,9 @@ public class User {
     private String email;
     private String role;
 
+    private String provider;    // google
+    private String providerId;  // sub
+
     @CreationTimestamp
     private Timestamp createDate;
 }

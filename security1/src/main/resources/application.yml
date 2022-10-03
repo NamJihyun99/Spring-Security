@@ -11,8 +11,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
-    username: cos
-    password: cos1234
+    ## id, secret 생략
   devtools:
     livereload:
       enabled: true
@@ -30,7 +29,7 @@ spring:
       client:
         registration:
           google:
-            // 클라이언트 id, secret 생략
+            ## 클라이언트 id, secret 생략
             scope:
               - email
               - profile
