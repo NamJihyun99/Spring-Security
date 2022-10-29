@@ -2,6 +2,7 @@ package com.cos.security1.config;
 
 import com.cos.security1.config.oauth.PrincipalOauth2UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,10 +14,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity  // 스프링 시큐리티 필터가 스프링 필터 체인에 등록
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) //Secured, PreAuthorize, PostAuthorize 애노테이션 활성화
-@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final PrincipalOauth2UserService principalOauth2UserService;
+    @Autowired
+    private PrincipalOauth2UserService principalOauth2UserService;
 
     // 해당 메서드의 리턴되는 오브젝트를 IoC로 등록
     @Bean
